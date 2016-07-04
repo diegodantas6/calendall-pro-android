@@ -1,0 +1,10 @@
+<resources>
+    <string name="facebook_app_id">1788886351397891</string>
+
+    <string name="app_name">Calendall Pro</string>
+
+    <string name="entrar">Entrar</string>
+    <string name="registrar">Registrar</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+</resources>
