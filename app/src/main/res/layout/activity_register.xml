@@ -9,4 +9,130 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="calendall.com.br.calendallpro.view.RegisterActivity">
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/cpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/cpf"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view1">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/cep_numero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:orientation="horizontal">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50">
+
+            <EditText
+                android:id="@+id/cep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cep"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50">
+
+            <EditText
+                android:id="@+id/numero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/numero"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cep_numero">
+
+        <EditText
+            android:id="@+id/complemento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/complemento"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/view6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view5">
+
+        <calendall.com.br.calendallpro.mask.EditTextCPF
+            android:id="@+id/cep3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/cpf"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/view7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view6">
+
+        <calendall.com.br.calendallpro.mask.EditTextCEL
+            android:id="@+id/cep4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/cep"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
 </RelativeLayout>

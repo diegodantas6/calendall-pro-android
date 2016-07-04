@@ -5,25 +5,29 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
-import com.facebook.GraphRequestAsyncTask;
 import com.facebook.GraphResponse;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.login.widget.ProfilePictureView;
+import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
 import java.util.Arrays;
 
 import calendall.com.br.calendallpro.R;
-import calendall.com.br.calendallpro.util.SharedUtil;
+import calendall.com.br.calendallpro.dtoIN.RetornoIN;
+import calendall.com.br.calendallpro.dtoOUT.AlterarSenhaOUT;
+import calendall.com.br.calendallpro.dtoOUT.LoginOUT;
+import calendall.com.br.calendallpro.service.CallService;
+import calendall.com.br.calendallpro.service.CallServiceInterface;
+import calendall.com.br.calendallpro.service.ServiceName;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -87,6 +91,18 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d("ID", id);
 
                         loginFoto.setProfileId(id);
+
+                        final Gson gson = new Gson();
+                        CallService callService = new CallService(LoginActivity.this, new CallServiceInterface() {
+                            @Override
+                            public void postCallService(String string) {
+                                RetornoIN in = gson.fromJson(string, RetornoIN.class);
+                                Log.d("IN", String.valueOf( string ));
+                            }
+                        });
+                        //LoginOUT out = new LoginOUT("diego", "123");
+                        AlterarSenhaOUT out = new AlterarSenhaOUT(1L, "99999999");
+                        callService.execute(ServiceName.ALTERAR_SENHA, gson.toJson(out));
 
                     }
                 });
