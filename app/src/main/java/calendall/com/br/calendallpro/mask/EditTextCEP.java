@@ -12,18 +12,16 @@ public class EditTextCEP extends EditText {
 
     //29120-010
     private boolean isUpdating;
-    private int positioning[] = {0, 1, 2, 3, 4, 5, 7, 8, 9};
+    private int positioning[] = {0,1,2,3,4,5,7,8,9};
 
     public EditTextCEP(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initialize();
-
     }
 
     public EditTextCEP(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialize();
-
     }
 
     public EditTextCEP(Context context) {
@@ -34,7 +32,6 @@ public class EditTextCEP extends EditText {
         String text = EditTextCEP.this.getText().toString();
         text.replaceAll("[^0-9]*", "");
         return text;
-
     }
 
     private void initialize() {
@@ -46,42 +43,33 @@ public class EditTextCEP extends EditText {
             public void afterTextChanged(Editable s) {
                 String current = s.toString();
 
-/*
-* Ok, here is the trick... calling setText below will recurse
-* to this function, so we set a flag that we are actually
-* updating the text, so we don't need to reprocess it...
-*/
                 if (isUpdating) {
                     isUpdating = false;
                     return;
 
                 }
 
-/* Strip any non numeric digit from the String... */
                 String number = current.replaceAll("[^0-9]*", "");
                 if (number.length() > maxNumberLength)
                     number = number.substring(0, maxNumberLength);
                 int length = number.length();
 
-/* Pad the number to 10 characters... */
-                String paddedNumber = padNumber(number, maxNumberLength);
+                if (length > 0) {
+                    String paddedNumber = padNumber(number, maxNumberLength);
 
-/* Split phone number into parts... */
-                String part1 = paddedNumber.substring(0, 5);
-                String part2 = paddedNumber.substring(5, 8);
+                    String part1 = paddedNumber.substring(0, 5);
+                    String part2 = paddedNumber.substring(5, 8);
 
-/* build the masked phone number... */
-                String cpf = part1 + "-" + part2;
+                    String cep = part1 + "-" + part2;
 
-/*
-* Set the update flag, so the recurring call to
-* afterTextChanged won't do nothing...
-*/
-                isUpdating = true;
-                EditTextCEP.this.setText(cpf);
+                    isUpdating = true;
+                    EditTextCEP.this.setText(cep);
 
-                EditTextCEP.this.setSelection(positioning[length]);
-
+                    EditTextCEP.this.setSelection(positioning[length]);
+                } else {
+                    isUpdating = true;
+                    EditTextCEP.this.setText("");
+                }
             }
 
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}

@@ -17,13 +17,11 @@ public class EditTextCEL extends EditText {
     public EditTextCEL(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initialize();
-
     }
 
     public EditTextCEL(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialize();
-
     }
 
     public EditTextCEL(Context context) {
@@ -34,7 +32,6 @@ public class EditTextCEL extends EditText {
         String text = EditTextCEL.this.getText().toString();
         text.replaceAll("[^0-9]*", "");
         return text;
-
     }
 
     private void initialize() {
@@ -56,18 +53,23 @@ public class EditTextCEL extends EditText {
                     number = number.substring(0, maxNumberLength);
                 int length = number.length();
 
-                String paddedNumber = padNumber(number, maxNumberLength);
+                if (length > 0) {
+                    String paddedNumber = padNumber(number, maxNumberLength);
 
-                String part1 = paddedNumber.substring(0, 2);
-                String part2 = paddedNumber.substring(2, 7);
-                String part3 = paddedNumber.substring(7, 11);
+                    String part1 = paddedNumber.substring(0, 2);
+                    String part2 = paddedNumber.substring(2, 7);
+                    String part3 = paddedNumber.substring(7, 11);
 
-                String cpf = String.format("(%s)%s-%s", part1, part2, part3);
+                    String cel = String.format("(%s)%s-%s", part1, part2, part3);
 
-                isUpdating = true;
-                EditTextCEL.this.setText(cpf);
+                    isUpdating = true;
+                    EditTextCEL.this.setText(cel);
 
-                EditTextCEL.this.setSelection(positioning[length]);
+                    EditTextCEL.this.setSelection(positioning[length]);
+                } else {
+                    isUpdating = true;
+                    EditTextCEL.this.setText("");
+                }
             }
 
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
