@@ -2,20 +2,20 @@ package calendall.com.br.calendallpro.dtoOUT;
 
 public class LoginOUT {
 
-	private String login;
+	private String email;
 	private String senha;
 
-	public String getLogin() {
-		return login;
+	public String getEmail() {
+		return email;
 	}
-	
+
 	public String getSenha() {
 		return senha;
 	}
 
-	public LoginOUT(String login, String senha) {
+	public LoginOUT(String email, String senha) {
 		super();
-		this.login = login;
+		this.email = email;
 		this.senha = senha;
 	}
 }

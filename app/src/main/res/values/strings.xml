@@ -5,12 +5,29 @@
 
     <string name="entrar">Entrar</string>
     <string name="registrar">Registrar</string>
-    <string name="login">Login</string>
+    <string name="continuar">Continuar</string>
+    <string name="enviar">Enviar</string>
     <string name="senha">Senha</string>
     <string name="email">Email</string>
     <string name="cpf">CPF</string>
     <string name="cep">CEP</string>
+    <string name="celular">Celular</string>
+    <string name="endereco">Endereço</string>
     <string name="complemento">Complemento</string>
     <string name="numero">Número</string>
+    <string name="nome">Nome</string>
+    <string name="esqueci_senha">Esqueci minha senha</string>
+    <string name="onde_atende">Onde voce atende?</string>
+    <string name="domicilio">A domicilio</string>
+    <string name="meu_local">No meu local</string>
+    <string name="forma_pagamento">Forma de pagamento</string>
+    <string name="boleto">Boleto</string>
+    <string name="cartao">Cartão</string>
+    <string name="numero_cartao">Número do Cartão</string>
+    <string name="nome_cartao">Nome apresentado no Cartão</string>
+    <string name="mes_vencimento">Mês vencimento</string>
+    <string name="ano_vencimento">Ano vencimento</string>
+    <string name="codigo_seguranca">Código de segurança</string>
+    <string name="valor">Valor</string>
 
 </resources>

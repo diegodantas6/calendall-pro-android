@@ -3,16 +3,27 @@ package calendall.com.br.calendallpro.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+
+import calendall.com.br.calendallpro.dtoIN.LoginIN;
+import calendall.com.br.calendallpro.dtoOUT.LoginOUT;
+import calendall.com.br.calendallpro.service.CallService;
+import calendall.com.br.calendallpro.service.CallServiceInterface;
+import calendall.com.br.calendallpro.service.ServiceName;
+import calendall.com.br.calendallpro.view.MenuActivity;
 
 public class Utils {
 

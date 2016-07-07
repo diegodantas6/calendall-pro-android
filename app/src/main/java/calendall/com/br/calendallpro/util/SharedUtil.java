@@ -8,13 +8,13 @@ public class SharedUtil {
 
     public static final String KEY_ID = "id";
     public static final String KEY_NOME = "nome";
-    public static final String KEY_LOGIN = "login";
+    public static final String KEY_EMAIL = "login";
     public static final String KEY_SENHA = "senha";
 
     private SharedPreferences sharedPref;
 
     public SharedUtil(Activity activity) {
-        this.sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+        this.sharedPref = activity.getSharedPreferences("prefs", Context.MODE_PRIVATE);
     }
 
     public void setPreferences(String key, String valor) {

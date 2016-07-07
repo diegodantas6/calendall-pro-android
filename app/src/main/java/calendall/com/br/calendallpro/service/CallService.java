@@ -12,6 +12,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import calendall.com.br.calendallpro.BuildConfig;
 import calendall.com.br.calendallpro.util.SharedUtil;
 import calendall.com.br.calendallpro.util.Utils;
 
@@ -50,9 +51,14 @@ public class CallService extends AsyncTask<String, Void, String>{
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type","application/json");
 
+            if (BuildConfig.DEBUG) {
+                connection.setRequestProperty("user", "diego@dantas.com");
+                connection.setRequestProperty("pass", "123");
+            }
+
             SharedUtil sharedUtil = new SharedUtil(this.activity);
             if (sharedUtil.getPreferences(SharedUtil.KEY_ID) != null) {
-                connection.setRequestProperty("user", sharedUtil.getPreferences(SharedUtil.KEY_LOGIN));
+                connection.setRequestProperty("user", sharedUtil.getPreferences(SharedUtil.KEY_EMAIL));
                 connection.setRequestProperty("pass", sharedUtil.getPreferences(SharedUtil.KEY_SENHA));
             }
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/activity_horizontal_margin" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Atividade 1"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/nome" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/valor"
+        android:layout_below="@+id/nome" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tempo"
+        android:id="@+id/txtTempo"
+        android:layout_below="@+id/valor" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tempo"
+        android:layout_marginLeft="30dp"
+        android:layout_alignBottom="@+id/txtTempo"
+        android:layout_toRightOf="@+id/txtTempo" />
+
+
+</RelativeLayout>

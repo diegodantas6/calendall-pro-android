@@ -18,10 +18,12 @@ public class LoginRegisterActivity extends Activity {
     public void onLogin(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void onRegister(View view) {
-        Intent intent = new Intent(this, RegisterActivity.class);
+        Intent intent = new Intent(this, RegisterLoginActivity.class);
         startActivity(intent);
+        finish();
     }
 }

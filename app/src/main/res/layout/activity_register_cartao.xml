@@ -7,18 +7,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="calendall.com.br.calendallpro.view.RegisterActivity">
+    tools:context=".view.RegisterLoginActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
+        <calendall.com.br.calendallpro.mask.EditTextCARTAO
             android:id="@+id/cpf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/cpf"
+            android:hint="@string/numero_cartao"
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true" />
@@ -35,7 +35,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
+            android:hint="@string/nome_cartao"
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true" />
@@ -60,7 +60,7 @@
                 android:id="@+id/cep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/cep"
+                android:hint="@string/mes_vencimento"
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true" />
@@ -77,7 +77,7 @@
                 android:id="@+id/numero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/numero"
+                android:hint="@string/ano_vencimento"
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true" />
@@ -96,43 +96,19 @@
             android:id="@+id/complemento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/complemento"
+            android:hint="@string/codigo_seguranca"
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true" />
 
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/view6"
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/view5">
-
-        <calendall.com.br.calendallpro.mask.EditTextCPF
-            android:id="@+id/cep3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/cpf"
-            android:maxLines="1"
-            android:singleLine="true" />
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/view7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view6">
-
-        <calendall.com.br.calendallpro.mask.EditTextCEL
-            android:id="@+id/cep4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/cep"
-            android:maxLines="1"
-            android:singleLine="true" />
-
-    </android.support.design.widget.TextInputLayout>
+        android:text="@string/continuar"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
