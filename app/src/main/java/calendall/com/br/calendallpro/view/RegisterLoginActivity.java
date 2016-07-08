@@ -32,6 +32,7 @@ import calendall.com.br.calendallpro.service.CallService;
 import calendall.com.br.calendallpro.service.CallServiceInterface;
 import calendall.com.br.calendallpro.service.ServiceName;
 import calendall.com.br.calendallpro.util.SharedUtil;
+import calendall.com.br.calendallpro.util.Utils;
 
 public class RegisterLoginActivity extends AppCompatActivity {
 
@@ -100,7 +101,30 @@ public class RegisterLoginActivity extends AppCompatActivity {
         String email = this.email.getText().toString();
         String senha = this.senha.getText().toString();
 
-        regitrarLogin(nome, email, senha);
+        boolean valido = true;
+        if (nome.isEmpty()) {
+            this.nome.setError("Este campo é obrigatório!");
+            valido = false;
+        }
+
+        if (!(Utils.isEmailValid(email))) {
+            this.email.setError("Email inválido!");
+            valido = false;
+        }
+
+        if (senha.length() < 6) {
+            this.senha.setError("Deve conter pelo menos 6 digitos!");
+            valido = false;
+        }
+
+        if (senha.length() > 20) {
+            this.senha.setError("Deve conter no maximo 20 digitos!");
+            valido = false;
+        }
+
+        if (valido) {
+            regitrarLogin(nome, email, senha);
+        }
     }
 
     private void regitrarLogin(final String nome, final String email, final String senha) {
@@ -108,6 +132,10 @@ public class RegisterLoginActivity extends AppCompatActivity {
         CallService callService = new CallService(this, new CallServiceInterface() {
             @Override
             public void postCallService(String string) {
+
+                if (BuildConfig.DEBUG)
+                    Log.i("RET", string);
+
                 CadastroUsuarioIN in = gson.fromJson(string, CadastroUsuarioIN.class);
 
                 if (in.isOk()) {
@@ -117,7 +145,7 @@ public class RegisterLoginActivity extends AppCompatActivity {
                     sharedUtil.setPreferences(SharedUtil.KEY_EMAIL, email);
                     sharedUtil.setPreferences(SharedUtil.KEY_SENHA, senha);
 
-                    Intent intent = new Intent(RegisterLoginActivity.this, MenuActivity.class);
+                    Intent intent = new Intent(RegisterLoginActivity.this, RegisterEnderecoActivity.class);
                     startActivity(intent);
                     finish();
 
@@ -127,6 +155,14 @@ public class RegisterLoginActivity extends AppCompatActivity {
             }
         });
         CadastroUsuarioOUT out = new CadastroUsuarioOUT(nome, email, senha);
-        callService.execute(ServiceName.CADASTRO_USUAIRO, gson.toJson(out));
+        callService.execute(ServiceName.CADASTRO_USUARIO, gson.toJson(out));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, LoginRegisterActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

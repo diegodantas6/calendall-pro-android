@@ -54,4 +54,11 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
         callService.execute(ServiceName.RECUPERAR_SENHA, gson.toJson(out));
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

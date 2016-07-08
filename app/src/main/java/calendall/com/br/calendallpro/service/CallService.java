@@ -34,7 +34,7 @@ public class CallService extends AsyncTask<String, Void, String>{
 
         if (Utils.isConnected(activity)) {
             progressDialog = new ProgressDialog(activity);
-            progressDialog.setMessage("Inicio!");
+            progressDialog.setMessage("Processando!");
             progressDialog.show();
         } else {
             Toast.makeText(activity, "Favor conectar a internet!", Toast.LENGTH_LONG).show();
@@ -51,10 +51,7 @@ public class CallService extends AsyncTask<String, Void, String>{
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type","application/json");
 
-            if (BuildConfig.DEBUG) {
-                connection.setRequestProperty("user", "diego@dantas.com");
-                connection.setRequestProperty("pass", "123");
-            }
+            connection.setConnectTimeout(5000);
 
             SharedUtil sharedUtil = new SharedUtil(this.activity);
             if (sharedUtil.getPreferences(SharedUtil.KEY_ID) != null) {

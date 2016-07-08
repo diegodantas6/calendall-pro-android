@@ -2,6 +2,7 @@
     <string name="facebook_app_id">1788886351397891</string>
 
     <string name="app_name">Calendall Pro</string>
+    <string name="menu">Menu</string>
 
     <string name="entrar">Entrar</string>
     <string name="registrar">Registrar</string>
@@ -17,8 +18,8 @@
     <string name="numero">Número</string>
     <string name="nome">Nome</string>
     <string name="esqueci_senha">Esqueci minha senha</string>
-    <string name="onde_atende">Onde voce atende?</string>
-    <string name="domicilio">A domicilio</string>
+    <string name="onde_atende">Onde você atende?</string>
+    <string name="domicilio">A domicílio</string>
     <string name="meu_local">No meu local</string>
     <string name="forma_pagamento">Forma de pagamento</string>
     <string name="boleto">Boleto</string>

@@ -23,6 +23,8 @@ import com.google.gson.Gson;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import calendall.com.br.calendallpro.BuildConfig;
 import calendall.com.br.calendallpro.R;
@@ -32,6 +34,7 @@ import calendall.com.br.calendallpro.service.CallService;
 import calendall.com.br.calendallpro.service.CallServiceInterface;
 import calendall.com.br.calendallpro.service.ServiceName;
 import calendall.com.br.calendallpro.util.SharedUtil;
+import calendall.com.br.calendallpro.util.Utils;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -98,7 +101,20 @@ public class LoginActivity extends AppCompatActivity {
         String email = this.email.getText().toString();
         String senha = this.senha.getText().toString();
 
-        login(email, senha);
+        boolean valido = true;
+        if (!(Utils.isEmailValid(email))) {
+            this.email.setError("Email inválido!");
+            valido = false;
+        }
+
+        if (senha.isEmpty()) {
+            this.senha.setError("Este campo é obrigatório!");
+            valido = false;
+        }
+
+        if (valido) {
+            login(email, senha);
+        }
     }
 
     public void login(final String email, final String senha) {
@@ -108,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
             public void postCallService(String string) {
                 LoginIN in = gson.fromJson(string, LoginIN.class);
 
-                if (in.isOk()) {
+                if (in != null && in.isOk()) {
                     SharedUtil sharedUtil = new SharedUtil(LoginActivity.this);
                     sharedUtil.setPreferences(SharedUtil.KEY_ID, String.valueOf(in.getId()));
                     sharedUtil.setPreferences(SharedUtil.KEY_NOME, in.getNome());
@@ -130,6 +146,13 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onEsqueciSenha(View v) {
         Intent intent = new Intent(this, EsqueciSenhaActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, LoginRegisterActivity.class);
         startActivity(intent);
         finish();
     }

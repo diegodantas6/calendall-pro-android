@@ -17,6 +17,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import calendall.com.br.calendallpro.dtoIN.LoginIN;
 import calendall.com.br.calendallpro.dtoOUT.LoginOUT;
@@ -35,6 +37,16 @@ public class Utils {
             return true;
         else
             return false;
+    }
+
+    public static boolean isEmailValid(String email) {
+        if ((email == null) || (email.trim().length() == 0))
+            return false;
+
+        String emailPattern = "\\b(^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@([A-Za-z0-9-])+(\\.[A-Za-z0-9-]+)*((\\.[A-Za-z0-9]{2,})|(\\.[A-Za-z0-9]{2,}\\.[A-Za-z0-9]{2,}))$)\\b";
+        Pattern pattern = Pattern.compile(emailPattern, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
     public static Bitmap byteToBitmap(byte[] img) {

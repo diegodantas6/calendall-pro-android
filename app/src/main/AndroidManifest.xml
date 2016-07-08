@@ -41,6 +41,10 @@
             android:label="@string/registrar"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".view.RegisterEnderecoActivity"
+            android:label="@string/registrar"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".view.AtividadeListActivity"
             android:label="@string/registrar"
             android:screenOrientation="portrait" />
@@ -48,8 +52,11 @@
             android:name=".view.AtividadeUsuarioListActivity"
             android:label="@string/registrar"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.MenuActivity" />
-        <activity android:name=".view.EsqueciSenhaActivity"></activity>
+        <activity
+            android:name=".view.MenuActivity"
+            android:label="@string/menu" />
+        <activity
+            android:name=".view.EsqueciSenhaActivity" />
     </application>
 
 </manifest>
