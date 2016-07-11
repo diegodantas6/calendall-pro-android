@@ -18,6 +18,7 @@ import calendall.com.br.calendallpro.service.CallService;
 import calendall.com.br.calendallpro.service.CallServiceInterface;
 import calendall.com.br.calendallpro.service.ServiceName;
 import calendall.com.br.calendallpro.util.SharedUtil;
+import calendall.com.br.calendallpro.util.Utils;
 
 public class EsqueciSenhaActivity extends AppCompatActivity {
 
@@ -34,6 +35,18 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
     public void onEnviar(View v) {
         String email = this.email.getText().toString();
 
+        boolean valido = true;
+        if (!(Utils.isEmailValid(email))) {
+            this.email.setError("Email inválido!");
+            valido = false;
+        }
+
+        if (valido) {
+            recuperaSenha(email);
+        }
+    }
+
+    private void recuperaSenha(String email) {
         final Gson gson = new Gson();
         CallService callService = new CallService(this, new CallServiceInterface() {
             @Override
@@ -44,7 +57,7 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
                     Intent intent = new Intent(EsqueciSenhaActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
-                    Toast.makeText(EsqueciSenhaActivity.this, "Foi enviado um email para alterar a senha!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EsqueciSenhaActivity.this, "Foi enviada uma nova senha para seu email!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(EsqueciSenhaActivity.this, "Usuário não encontrado!", Toast.LENGTH_SHORT).show();
                 }

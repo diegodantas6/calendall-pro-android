@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".view.RegisterLoginActivity">
+    tools:context=".view.RegisterCartaoActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/view1"
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <calendall.com.br.calendallpro.mask.EditTextCARTAO
-            android:id="@+id/cpf"
+            android:id="@+id/numero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/numero_cartao"
@@ -32,7 +32,7 @@
         android:layout_below="@+id/view1">
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nome_cartao"
@@ -57,7 +57,7 @@
             android:layout_weight=".50">
 
             <EditText
-                android:id="@+id/cep"
+                android:id="@+id/mes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mes_vencimento"
@@ -74,7 +74,7 @@
             android:layout_weight=".50">
 
             <EditText
-                android:id="@+id/numero"
+                android:id="@+id/ano"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/ano_vencimento"
@@ -93,7 +93,7 @@
         android:layout_below="@+id/cep_numero">
 
         <EditText
-            android:id="@+id/complemento"
+            android:id="@+id/cvv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/codigo_seguranca"
@@ -108,6 +108,7 @@
         android:layout_height="wrap_content"
         android:text="@string/continuar"
         android:id="@+id/button"
+        android:onClick="onContinuar"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 

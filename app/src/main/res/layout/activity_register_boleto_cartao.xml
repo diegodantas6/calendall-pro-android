@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="calendall.com.br.calendallpro.view.LoginRegisterActivity">
+    tools:context="calendall.com.br.calendallpro.view.RegisterBoletoCartaoActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_weight=".50"
             android:text="@string/boleto"
             android:background="@drawable/button"
-            android:onClick="onLogin"
+            android:onClick="onBoleto"
             android:id="@+id/button2" />
 
         <android.support.v4.widget.Space
@@ -42,7 +42,7 @@
             android:layout_weight=".50"
             android:text="@string/cartao"
             android:background="@drawable/button"
-            android:onClick="onRegister"
+            android:onClick="onCartao"
             android:id="@+id/button3" />
     </LinearLayout>
 

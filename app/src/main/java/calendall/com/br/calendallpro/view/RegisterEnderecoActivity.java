@@ -109,7 +109,7 @@ public class RegisterEnderecoActivity extends AppCompatActivity {
                 RetornoIN in = gson.fromJson(string, RetornoIN.class);
 
                 if (in.isOk()) {
-                    Intent intent = new Intent(RegisterEnderecoActivity.this, MenuActivity.class);
+                    Intent intent = new Intent(RegisterEnderecoActivity.this, RegisterBoletoCartaoActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
