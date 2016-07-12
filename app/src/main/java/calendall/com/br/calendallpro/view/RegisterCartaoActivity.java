@@ -89,7 +89,7 @@ public class RegisterCartaoActivity extends AppCompatActivity {
                 RetornoIN in = gson.fromJson(string, RetornoIN.class);
 
                 if (in.isOk()) {
-                    Intent intent = new Intent(RegisterCartaoActivity.this, MenuActivity.class);
+                    Intent intent = new Intent(RegisterCartaoActivity.this, AtividadeListActivity.class);
                     startActivity(intent);
                     finish();
                 } else {

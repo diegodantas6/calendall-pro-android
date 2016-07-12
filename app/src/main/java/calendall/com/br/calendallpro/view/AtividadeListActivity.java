@@ -20,6 +20,7 @@ import calendall.com.br.calendallpro.list.AtividadeAdapter;
 import calendall.com.br.calendallpro.service.CallService;
 import calendall.com.br.calendallpro.service.CallServiceInterface;
 import calendall.com.br.calendallpro.service.ServiceName;
+import calendall.com.br.calendallpro.util.SharedUtil;
 
 public class AtividadeListActivity extends AppCompatActivity {
 
@@ -37,7 +38,9 @@ public class AtividadeListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Long usuario = 1L;
+                SharedUtil sharedUtil = new SharedUtil(AtividadeListActivity.this);
+                Long usuario = Long.valueOf(sharedUtil.getPreferences(SharedUtil.KEY_ID));
+
                 List<Long> ativis = new ArrayList<Long>();
                 for (AtividadeOUT atividadeOUT : atividades) {
                     if (atividadeOUT.isChecked()) {
@@ -55,6 +58,7 @@ public class AtividadeListActivity extends AppCompatActivity {
                         Intent intent = new Intent(AtividadeListActivity.this, AtividadeUsuarioListActivity.class);
                         intent.putExtra("DADOS", string);
                         startActivity(intent);
+                        finish();
                     }
                 });
 

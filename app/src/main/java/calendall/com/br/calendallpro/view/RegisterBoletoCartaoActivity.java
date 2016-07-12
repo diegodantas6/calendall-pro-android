@@ -54,7 +54,7 @@ public class RegisterBoletoCartaoActivity extends AppCompatActivity {
                     if (tipoPagamento.equals("C")) {
                         intent = new Intent(RegisterBoletoCartaoActivity.this, RegisterCartaoActivity.class);
                     } else {
-                        intent = new Intent(RegisterBoletoCartaoActivity.this, MenuActivity.class);
+                        intent = new Intent(RegisterBoletoCartaoActivity.this, AtividadeListActivity.class);
                     }
                     startActivity(intent);
                     finish();

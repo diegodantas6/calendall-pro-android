@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import calendall.com.br.calendallpro.R;
+import calendall.com.br.calendallpro.dtoIN.LoginIN;
+import calendall.com.br.calendallpro.dtoIN.RetornoIN;
 import calendall.com.br.calendallpro.dtoIN.UsuarioAtividadeIN;
 import calendall.com.br.calendallpro.dtoOUT.AtividadeOUT;
 import calendall.com.br.calendallpro.dtoOUT.DadoAtividadeOUT;
@@ -23,6 +26,7 @@ import calendall.com.br.calendallpro.list.AtividadeUsuarioAdapter;
 import calendall.com.br.calendallpro.service.CallService;
 import calendall.com.br.calendallpro.service.CallServiceInterface;
 import calendall.com.br.calendallpro.service.ServiceName;
+import calendall.com.br.calendallpro.util.SharedUtil;
 
 public class AtividadeUsuarioListActivity extends AppCompatActivity {
 
@@ -63,9 +67,15 @@ public class AtividadeUsuarioListActivity extends AppCompatActivity {
                 CallService callService = new CallService(AtividadeUsuarioListActivity.this, new CallServiceInterface() {
                     @Override
                     public void postCallService(String string) {
+                        RetornoIN in = gson.fromJson(string, RetornoIN.class);
 
-                        Log.i("RET", string);
-
+                        if (in.isOk()) {
+                            Intent intent = new Intent(AtividadeUsuarioListActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(AtividadeUsuarioListActivity.this, "Deu algum erro!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
 
